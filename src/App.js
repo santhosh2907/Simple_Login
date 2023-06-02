@@ -2,7 +2,6 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import Login from './Login';
 // import Home from './home';
-import Dashboard from './Dashboard';
 // import ShopDetails from './ShopDetails';
 import ProtectedRoute from './ProtectedRoute';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -26,7 +25,6 @@ function App() {
                     <ShopDetails/>
                   </Suspense>
                 } path="/shop/:id" exact/>
-                <Route element={<Dashboard/>} path="/dashboard"/>
             </Route>
       </Routes>
     </BrowserRouter>
