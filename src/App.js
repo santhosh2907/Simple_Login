@@ -1,24 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { useEffect, useState } from 'react';
+import Login from './Login';
+// import Home from './home';
+import Dashboard from './Dashboard';
+// import ShopDetails from './ShopDetails';
+import ProtectedRoute from './ProtectedRoute';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
+const Home = lazy(() => import('./home'))
+const ShopDetails = lazy(() => import('./ShopDetails'))
 function App() {
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route element={<ProtectedRoute />}>
+                <Route element={
+                  <Suspense fallback={<h1>Loading…</h1>}>
+                    <Home/>
+                  </Suspense>
+                } path="/" exact/>
+                <Route element={
+                  <Suspense fallback={<h1>Loading…</h1>}>
+                    <ShopDetails/>
+                  </Suspense>
+                } path="/shop/:id" exact/>
+                <Route element={<Dashboard/>} path="/dashboard"/>
+            </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
