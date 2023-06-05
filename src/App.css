@@ -24,6 +24,51 @@
   color: white;
 }
 
+
+.about-page .card img {
+  object-fit: cover;
+  height: 300px;
+  transition: transform 0.3s ease;
+}
+
+.about-page .card h5{
+  text-align: center;
+  color:rgb(255, 98, 0);
+}
+
+.about-page .card .card-body p{
+  text-align: center;
+}
+.about-page .card .card-body a{
+  text-align: center;
+}
+
+.about-page .card img:hover {
+  transform: scale(0.9);
+}
+
+/* .about-page .card {
+  width: 18rem
+} */
+
+.about-page .centered-card  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  margin: 15px 40px;
+  text-decoration: none;
+}
+.about-page .centered-card h5 {
+  text-align: center;
+}
+/* .about-page .centered-card .card-body .btn-primary {
+  text-align: center;
+  color: #fff;
+} */
+
+
+
 .App-link {
   color: #61dafb;
 }
@@ -32,7 +77,64 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
+/* Header styles */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  align-items: stretch;
+}
+
+.header h1 {
+  font-size: 24px;
+}
+
+
+/* Responsive styles */
+@media only screen and (max-width: 600px) {
+  .header {
+    padding: 10px;
+  }
+
+  .header h1 {
+    font-size: 18px;
+  }
+}
+
+.navbar {
+  display: flex;
+  background-color: #333;
+  color: rgb(99, 22, 215);
+}
+
+.navbar a {
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar a {
+    width: 100%;
+  }
+}
+
